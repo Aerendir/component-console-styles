@@ -79,8 +79,8 @@ class SerendipityHQStyle extends OutputStyle
     {
         $this->autoPrependBlock();
         $this->writeln([
-            sprintf('<fg=white>%s</>', $message),
-            sprintf('<fg=white>%s</>', str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+            sprintf('<fg=green>%s</>', $message),
+            sprintf('<fg=green>%s</>', str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
         ]);
         $this->newLine();
     }
@@ -92,8 +92,8 @@ class SerendipityHQStyle extends OutputStyle
     {
         $this->autoPrependBlock();
         $this->writeln([
-            sprintf('<fg=white>%s</>', $message),
-            sprintf('<fg=white>%s</>', str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+            sprintf('<fg=green>%s</>', $message),
+            sprintf('<fg=green>%s</>', str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
         ]);
         $this->newLine();
     }
@@ -317,7 +317,7 @@ class SerendipityHQStyle extends OutputStyle
     public function table(array $headers, array $rows)
     {
         $style = clone Table::getStyleDefinition('symfony-style-guide');
-        $style->setCellHeaderFormat('%s');
+        $style->setCellHeaderFormat('<fg=green>%s</>');
 
         $table = new Table($this);
         $table->setHeaders($headers);
