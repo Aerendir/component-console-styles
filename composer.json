@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SerendipityHQ\\Component\\": "src"
+            "SerendipityHQ\\Bundle\\ConsoleStyles\\": "src"
         }
     }
 }
