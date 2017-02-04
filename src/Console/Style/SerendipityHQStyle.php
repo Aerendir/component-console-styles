@@ -186,7 +186,7 @@ class SerendipityHQStyle extends OutputStyle
      */
     public function error($message)
     {
-        $this->block($message, 'ERROR', 'error', ' ', true);
+        $this->block($message, "\xE2\x9C\x96", 'error', ' ', true);
     }
 
     /**
@@ -195,7 +195,7 @@ class SerendipityHQStyle extends OutputStyle
      * @param string $message
      */
     public function errorLine(string $message) {
-        $this->writeln($this->createLine($message, 'ERROR', 'error', null));
+        $this->writeln($this->createLine($message, "\xE2\x9C\x96", 'error', null));
     }
 
     /**
@@ -204,7 +204,7 @@ class SerendipityHQStyle extends OutputStyle
      * @param string $message
      */
     public function errorLineNoBg(string $message) {
-        $this->writeln($this->createLine($message, 'ERROR', 'error-nobg', null));
+        $this->writeln($this->createLine($message, "\xE2\x9C\x96", 'error-nobg', null));
     }
 
     /**
@@ -264,7 +264,7 @@ class SerendipityHQStyle extends OutputStyle
      */
     public function success($message)
     {
-        $this->block($message, 'OK', 'success', ' ', true);
+        $this->block($message, "\xE2\x9C\x94", 'success', ' ', true);
     }
 
     /**
@@ -273,7 +273,7 @@ class SerendipityHQStyle extends OutputStyle
      * @param string $message
      */
     public function successLine(string $message) {
-        $this->writeln($this->createLine($message, 'OK', 'success', null));
+        $this->writeln($this->createLine($message, "\xE2\x9C\x94", 'success', null));
     }
 
     /**
@@ -282,7 +282,7 @@ class SerendipityHQStyle extends OutputStyle
      * @param string $message
      */
     public function successLineNoBg(string $message) {
-        $this->writeln($this->createLine($message, 'OK', 'success-nobg', null));
+        $this->writeln($this->createLine($message, "\xE2\x9C\x94", 'success-nobg', null));
     }
 
     /**
