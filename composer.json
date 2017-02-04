@@ -1,0 +1,26 @@
+{
+    "name": "serendipity_hq/console-styles-bundle",
+    "description": "Provides advanced styles for Symfony Console commands.",
+    "type": "symfony-bundle",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adamo Aerendir Crespi",
+            "email": "hello@aerendir.me"
+        }
+    ],
+    "require": {
+        "php": "~7.0",
+        "symfony/console": "~2.8|~3"
+    },
+    "require-dev": {
+        "codeclimate/php-test-reporter": "dev-master",
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SerendipityHQ\\Component\\": "src"
+        }
+    }
+}
