@@ -317,7 +317,7 @@ class SerendipityHQStyle extends OutputStyle
     public function table(array $headers, array $rows)
     {
         $style = clone Table::getStyleDefinition('symfony-style-guide');
-        $style->setCellHeaderFormat('<info>%s</info>');
+        $style->setCellHeaderFormat('%s');
 
         $table = new Table($this);
         $table->setHeaders($headers);
