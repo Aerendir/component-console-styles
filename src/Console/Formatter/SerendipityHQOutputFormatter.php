@@ -16,12 +16,12 @@ class SerendipityHQOutputFormatter extends OutputFormatter
     public function __construct($decorated = false, $styles = [])
     {
         $styles = [
-            'caution' => new OutputFormatterStyle('white', 'yellow'),
+            'caution' => new OutputFormatterStyle('black', 'yellow'),
             'comment' => new OutputFormatterStyle('black', 'white'),
-            'error' => new OutputFormatterStyle('white', 'red'),
-            'info' => new OutputFormatterStyle('white', 'blue'),
+            'error' => new OutputFormatterStyle('black', 'red'),
+            'info' => new OutputFormatterStyle('black', 'blue'),
             'note' => new OutputFormatterStyle('yellow', 'blue'),
-            'success' => new OutputFormatterStyle('white', 'green'),
+            'success' => new OutputFormatterStyle('black', 'green'),
             'warning' => new OutputFormatterStyle('red', 'yellow'),
             'caution-nobg' => new OutputFormatterStyle('yellow'),
             'comment-nobg' => new OutputFormatterStyle('white'),
