@@ -29,10 +29,19 @@ class SerendipityHQStyle extends OutputStyle
 {
     const MAX_LINE_LENGTH = 120;
 
+    /** @var InputInterface $input */
     private $input;
+
+    /** @var  SymfonyQuestionHelper $questionHelper */
     private $questionHelper;
+
+    /** @var  ProgressBar $progressBar */
     private $progressBar;
+
+    /** @var int $lineLength  */
     private $lineLength;
+
+    /** @var BufferedOutput $bufferedOutput */
     private $bufferedOutput;
 
     /**
@@ -51,6 +60,7 @@ class SerendipityHQStyle extends OutputStyle
             $this->lineLength = min($width - (int)(DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
         }
 
+        // This is required as the parent::$output is private :(
         parent::__construct($output);
     }
 
@@ -480,6 +490,14 @@ class SerendipityHQStyle extends OutputStyle
         }
 
         return $this;
+    }
+
+    /**
+     * @return InputInterface
+     */
+    public function getInput() : InputInterface
+    {
+        return $this->input;
     }
 
     /**
