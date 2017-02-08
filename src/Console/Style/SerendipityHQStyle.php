@@ -174,6 +174,18 @@ class SerendipityHQStyle extends OutputStyle
     }
 
     /**
+     * Formats a command comment as block.
+     *
+     * @param string|array $message
+     */
+    public function commentNoBg($message)
+    {
+        $messages = is_array($message) ? array_values($message) : [$message];
+
+        $this->block($messages, 'COMMENT', 'comment-nobg', ' // ', true);
+    }
+
+    /**
      * Formats a command comment as single line.
      *
      * @param string $message
