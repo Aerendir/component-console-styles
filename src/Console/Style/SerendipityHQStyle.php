@@ -513,6 +513,14 @@ class SerendipityHQStyle extends OutputStyle
     }
 
     /**
+     * @return int
+     */
+    public function getLineLength() : int
+    {
+        return $this->lineLength;
+    }
+
+    /**
      * @return ProgressBar
      */
     protected function getProgressBar()
