@@ -645,7 +645,11 @@ class SerendipityHQStyle extends OutputStyle
         }
 
         $message = $prefix.$message;
-        $message .= str_repeat(' ', $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $message));
+        $length = $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $message);
+
+        if (0 < $length) {
+            $message .= str_repeat(' ', $length);
+        }
 
         if ($style) {
             $message = sprintf('<%s>%s</>', $style, $message);
