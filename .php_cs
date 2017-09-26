@@ -4,7 +4,8 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude([
         'vendor'
     ])
-    ->in(__DIR__.'/src');
+    ->in(__DIR__.'/src')
+    ->in(__DIR__.'/tests');
 
 $header = <<<EOF
 This file is part of Console Styles.
