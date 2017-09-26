@@ -1,5 +1,18 @@
 <?php
 
+/*
+ * This file is part of Console Styles.
+ *
+ * Copyright Adamo Aerendir Crespi 2017.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2017 Aerendir. All rights reserved.
+ * @license   MIT License.
+ */
+
 namespace SerendipityHQ\Bundle\ConsoleStyles\Command;
 
 use SerendipityHQ\Bundle\ConsoleStyles\Console\Formatter\SerendipityHQOutputFormatter;
@@ -34,7 +47,7 @@ class SerendipityHQStylesCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $outputFormatter = new SerendipityHQOutputFormatter(true);
-        $ioWriter = new SerendipityHQStyle($input, $output);
+        $ioWriter        = new SerendipityHQStyle($input, $output);
         $ioWriter->setFormatter($outputFormatter);
 
         $ioWriter->title('Serendipity HQ Style Guide');
