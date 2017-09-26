@@ -5,7 +5,6 @@
 [![Code Climate](https://codeclimate.com/github/Aerendir/console-styles-bundle/badges/gpa.svg)](https://codeclimate.com/github/Aerendir/console-styles-bundle)
 [![Test Coverage](https://codeclimate.com/github/Aerendir/console-styles-bundle/badges/coverage.svg)](https://codeclimate.com/github/Aerendir/console-styles-bundle/coverage)
 [![Issue Count](https://codeclimate.com/github/Aerendir/console-styles-bundle/badges/issue_count.svg)](https://codeclimate.com/github/Aerendir/console-styles-bundle)
-[![StyleCI](https://styleci.io/repos/80922679/shield?branch=master)](https://styleci.io/repos/80922679)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/91fb3837-e3b6-4a11-9743-ba3d6c1b3f9b/mini.png)](https://insight.sensiolabs.com/projects/91fb3837-e3b6-4a11-9743-ba3d6c1b3f9b)
 
 # Console Style
