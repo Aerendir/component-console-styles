@@ -565,19 +565,28 @@ class SerendipityHQStyle extends OutputStyle
     protected function getTerminalWidth()
     {
         $application = new Application();
-        $dimensions  = $application->getTerminalDimensions();
 
-        return $dimensions[0] ?: self::MAX_LINE_LENGTH;
+        // Compatibility with Symfony ~3
+        if (method_exists($application, 'getTerminalWidth')) {
+            $dimensions  = $application->getTerminalDimensions();
+
+            return $dimensions[0] ?: self::MAX_LINE_LENGTH;
+        }
+
+        return self::MAX_LINE_LENGTH;
     }
 
+    /**
+     * @return void
+     */
     protected function autoPrependBlock()
     {
         $chars = substr(str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
 
         if ( ! isset($chars[0])) {
-            return $this->newLine(); //empty history, so we should start with a new line.
+            $this->newLine(); //empty history, so we should start with a new line.
         }
-        //Prepend new line for each non LF chars (This means no blank line was output before)
+        // Prepend new line for each non LF chars (This means no blank line was output before)
         $this->newLine(2 - substr_count($chars, "\n"));
     }
 
@@ -663,6 +672,15 @@ class SerendipityHQStyle extends OutputStyle
         return $lines;
     }
 
+    /**
+     * @param string $message
+     * @param null   $type
+     * @param null   $style
+     * @param string $prefix
+     * @param bool   $escape
+     *
+     * @return string
+     */
     protected function createLine($message, $type = null, $style = null, $prefix = '', $escape = false)
     {
         if ($escape) {
