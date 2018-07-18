@@ -576,9 +576,6 @@ class SerendipityHQStyle extends OutputStyle
         return self::MAX_LINE_LENGTH;
     }
 
-    /**
-     * @return void
-     */
     protected function autoPrependBlock()
     {
         $chars = substr(str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
