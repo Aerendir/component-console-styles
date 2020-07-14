@@ -1,4 +1,7 @@
-build
-vendor
 composer.lock
-.php_cs.cache
+phpunit.xml
+build
+var
+!var/cache/.gitkeep
+vendor
+/vendor-bin/**/vendor
