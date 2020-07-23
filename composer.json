@@ -5,6 +5,9 @@
     "type": "symfony-bundle",
     "keywords": [],
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/Aerendir/component-console-styles/issues"
+    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
