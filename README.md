@@ -33,3 +33,14 @@
 [![PHP CS Fixer](https://github.com/Aerendir/component-console-styles/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-console-styles/actions?query=branch%3Adev)
 [![Rector](https://github.com/Aerendir/component-console-styles/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-console-styles/actions?query=branch%3Adev)
 
+<hr />
+<h3 align="center">
+    <b>Do you like this bundle?</b><br />
+    <b><a href="#js-repo-pjax-container">LEAVE A &#9733;</a></b>
+</h3>
+<p align="center">
+    or run<br />
+    <code>composer global require symfony/thanks && composer thanks</code><br />
+    to say thank you to all libraries you use in your current project, this included!
+</p>
+<hr />
