@@ -2,7 +2,7 @@
     "name": "serendipity_hq/component-console-styles",
     "description": "Provides advanced styles for Symfony Console.",
     "homepage": "https://github.com/Aerendir/component-console-styles",
-    "type": "symfony-bundle",
+    "type": "library",
     "keywords": [],
     "license": "MIT",
     "support": {
