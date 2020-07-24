@@ -20,7 +20,6 @@ return [
         'src',
         'tests',
         'vendor',
-        'vendor-bin/phpunit/vendor'
     ],
 
     // A directory list that defines files that will be excluded
@@ -36,9 +35,6 @@ return [
     //       and `exclude_analysis_directory_list` arrays.
     'exclude_analysis_directory_list' => [
         'vendor/',
-        'vendor-bin/phpunit/vendor',
-        'build/',
-        'docs/'
     ],
 
     'quick_mode' => false,
