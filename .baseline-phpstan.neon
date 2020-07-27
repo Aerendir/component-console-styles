@@ -1,34 +1,9 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Command\\\\SerendipityHQStylesCommand\\:\\:configure\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Command/SerendipityHQStylesCommand.php
-
-		-
-			message: "#^Return type \\(bool\\) of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Command\\\\SerendipityHQStylesCommand\\:\\:execute\\(\\) should be compatible with return type \\(int\\) of method Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:execute\\(\\)$#"
-			count: 1
-			path: src/Command/SerendipityHQStylesCommand.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Command\\\\SymfonyStylesCommand\\:\\:configure\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Command/SymfonyStylesCommand.php
-
-		-
-			message: "#^Return type \\(bool\\) of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Command\\\\SymfonyStylesCommand\\:\\:execute\\(\\) should be compatible with return type \\(int\\) of method Symfony\\\\Component\\\\Console\\\\Command\\\\Command\\:\\:execute\\(\\)$#"
-			count: 1
-			path: src/Command/SymfonyStylesCommand.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Formatter\\\\SerendipityHQOutputFormatter\\:\\:__construct\\(\\) has parameter \\$decorated with no typehint specified\\.$#"
 			count: 1
 			path: src/Console/Formatter/SerendipityHQOutputFormatter.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:block\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:block\\(\\) has parameter \\$messages with no value type specified in iterable type array\\.$#"
@@ -46,22 +21,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:title\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:title\\(\\) has parameter \\$message with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Function sprintf is unsafe to use\\. It can return FALSE instead of throwing an exception\\. Please add 'use function Safe\\\\sprintf;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
-			count: 10
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:section\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -71,17 +31,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:listing\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:listing\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:text\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -91,17 +41,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:caution\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:caution\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:cautionLine\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -116,22 +56,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:cautionLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:comment\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:comment\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:commentNoBg\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -141,37 +66,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:commentLine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:commentLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:error\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:error\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:errorLine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:errorLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:info\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -181,37 +76,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:infoLine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:infoLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:note\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:note\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:noteLine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:noteLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:success\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -221,37 +86,7 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:successLine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:successLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:warning\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:warning\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:warningLine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:warningLineNoBg\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:table\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -301,8 +136,8 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:confirm\\(\\) should return bool but returns string\\.$#"
-			count: 1
+			message: "#^Return type \\(string\\) of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:confirm\\(\\) should be compatible with return type \\(bool\\) of method Symfony\\\\Component\\\\Console\\\\Style\\\\StyleInterface\\:\\:confirm\\(\\)$#"
+			count: 2
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
@@ -316,32 +151,12 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Function array_flip is unsafe to use\\. It can return FALSE instead of throwing an exception\\. Please add 'use function Safe\\\\array_flip;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressStart\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressStart\\(\\) has parameter \\$max with no typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressAdvance\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressAdvance\\(\\) has parameter \\$step with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressFinish\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -361,27 +176,12 @@ parameters:
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:writeln\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:writeln\\(\\) has parameter \\$messages with no value type specified in iterable type iterable\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:write\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:write\\(\\) has parameter \\$messages with no value type specified in iterable type iterable\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:newLine\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -392,21 +192,6 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Console\\\\Application\\:\\:getTerminalDimensions\\(\\)\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:autoPrependBlock\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Function substr is unsafe to use\\. It can return FALSE instead of throwing an exception\\. Please add 'use function Safe\\\\substr;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
-			count: 3
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:autoPrependText\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
 
@@ -449,9 +234,4 @@ parameters:
 			message: "#^Parameter \\#2 \\$multiplier of function str_repeat expects int, float\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Tests\\\\TestConsoleStylesBundle\\:\\:testBundle\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/TestConsoleStylesBundle.php
 
