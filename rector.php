@@ -31,7 +31,7 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             SetList::CODE_QUALITY,
             SetList::CODING_STYLE,
             // SetList::NAMING, // Do not use in this library
-            SetList::ORDER,
+            // SetList::ORDER, // Do not use in this library
             SetList::PERFORMANCE,
             SetList::PHP_52,
             SetList::PHP_53,
@@ -99,10 +99,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector::class,
             Rector\TypeDeclaration\Rector\ClassMethod\AddArrayParamDocTypeRector::class,
             Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector::class,
-
-            // Bug https://github.com/Aerendir/component-console-styles/issues/13
-            Rector\Order\Rector\Class_\OrderClassConstantsByIntegerValueRector::class,
-            Rector\Order\Rector\Class_\OrderPropertyByComplexityRector::class
         ]
     );
 };
