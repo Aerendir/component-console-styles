@@ -1,16 +1,12 @@
 <?php
 
 /*
- * This file is part of Console Styles.
+ * This file is part of the Serendipity HQ Console Styles Component.
  *
- * Copyright Adamo Aerendir Crespi 2017.
+ * Copyright (c) Adamo Aerendir Crespi <aerendir@serendipityhq.com>.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
- * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2017 Aerendir. All rights reserved.
- * @license   MIT License.
  */
 
 namespace SerendipityHQ\Bundle\ConsoleStyles\Command;
@@ -33,7 +29,7 @@ final class SerendipityHQStylesCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function configure():void
+    protected function configure(): void
     {
         $this
             ->setDescription("A command to display all available SerendipityHQ's console style.")
@@ -46,7 +42,7 @@ final class SerendipityHQStylesCommand extends Command
      *
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output):int
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $outputFormatter = new SerendipityHQOutputFormatter(true);
         $ioWriter        = new SerendipityHQStyle($input, $output);
