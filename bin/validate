@@ -7,5 +7,4 @@ vendor/bin/phan --dead-code-detection --load-baseline .baseline-phan.php &&
 vendor/bin/psalm --find-unused-psalm-suppress &&
 vendor/bin/phpunit &&
 symfony security:check &&
-composer outdated --direct &&
 composer validate --strict --no-check-lock
