@@ -10,21 +10,17 @@
 return [
     // # Issue statistics:
     // PhanTypeMismatchArgument : 25+ occurrences
-    // PhanParamSignatureMismatch : 2 occurrences
+    // PhanParamSignatureRealMismatchHasNoParamType : 10+ occurrences
+    // PhanUnreferencedProtectedProperty : 2 occurrences
+    // PhanParamSignatureMismatch : 1 occurrence
     // PhanTypeMismatchProperty : 1 occurrence
-    // PhanTypeMismatchReturn : 1 occurrence
-    // PhanUndeclaredExtendedClass : 1 occurrence
     // PhanUndeclaredMethod : 1 occurrence
-    // PhanUndeclaredStaticMethod : 1 occurrence
-    // PhanUnusedPublicMethodParameter : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
-        'src/Command/SerendipityHQStylesCommand.php' => ['PhanParamSignatureMismatch'],
-        'src/Command/SymfonyStylesCommand.php' => ['PhanParamSignatureMismatch'],
-        'src/Console/Formatter/SerendipityHQOutputFormatter.php' => ['PhanUnusedPublicMethodParameter'],
-        'src/Console/Style/SerendipityHQStyle.php' => ['PhanTypeMismatchArgument', 'PhanTypeMismatchProperty', 'PhanTypeMismatchReturn', 'PhanUndeclaredMethod'],
-        'tests/TestConsoleStylesBundle.php' => ['PhanUndeclaredExtendedClass', 'PhanUndeclaredStaticMethod'],
+        'src/Command/SerendipityHQStylesCommand.php' => ['PhanUnreferencedProtectedProperty'],
+        'src/Command/SymfonyStylesCommand.php' => ['PhanUnreferencedProtectedProperty'],
+        'src/Console/Style/SerendipityHQStyle.php' => ['PhanParamSignatureMismatch', 'PhanParamSignatureRealMismatchHasNoParamType', 'PhanTypeMismatchArgument', 'PhanTypeMismatchProperty', 'PhanUndeclaredMethod'],
     ],
     // 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.
     // (directory_suppressions will currently be ignored by subsequent calls to --save-baseline, but may be preserved in future Phan releases)
