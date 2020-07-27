@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
-  <file src="src/Command/SerendipityHQStylesCommand.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>bool</code>
-    </ImplementedReturnTypeMismatch>
-  </file>
-  <file src="src/Command/SymfonyStylesCommand.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>bool</code>
-    </ImplementedReturnTypeMismatch>
-  </file>
   <file src="src/Console/Formatter/SerendipityHQOutputFormatter.php">
     <MissingParamType occurrences="2">
       <code>$decorated</code>
       <code>$styles</code>
     </MissingParamType>
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
+      <code>$styles</code>
       <code>$decorated</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$styles</code>
+    </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Console/Style/SerendipityHQStyle.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>string</code>
+    </ImplementedReturnTypeMismatch>
     <InvalidArgument occurrences="28">
       <code>$type</code>
       <code>$style</code>
-      <code>'CAUTION'</code>
+      <code>self::CAUTION</code>
       <code>'caution'</code>
-      <code>'CAUTION'</code>
-      <code>'caution-nobg'</code>
+      <code>self::CAUTION</code>
+      <code>ConsoleStyles::CAUTION_NOBG</code>
       <code>'comment'</code>
       <code>'comment-nobg'</code>
       <code>"\xE2\x9C\x96"</code>
@@ -50,40 +47,53 @@
       <code>'!'</code>
       <code>'warning-nobg'</code>
     </InvalidArgument>
-    <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;askQuestion(new ConfirmationQuestion($question, $default))</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>confirm</code>
-    </InvalidReturnType>
-    <MissingParamType occurrences="3">
+    <MissingParamType occurrences="17">
       <code>$message</code>
+      <code>$message</code>
+      <code>$message</code>
+      <code>$question</code>
+      <code>$default</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$default</code>
+      <code>$question</code>
+      <code>$max</code>
+      <code>$step</code>
+      <code>$max</code>
+      <code>$count</code>
       <code>$messages</code>
       <code>$messages</code>
     </MissingParamType>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="20">
       <code>Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $message)</code>
       <code>Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $message)</code>
-      <code>$element</code>
       <code>$message</code>
-      <code>$message</code>
+      <code>$question</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$default</code>
+      <code>$question</code>
+      <code>$step</code>
+      <code>$max</code>
+      <code>$count</code>
       <code>$this-&gt;getErrorOutput()</code>
       <code>$value</code>
-      <code>$type</code>
       <code>$message</code>
       <code>$message</code>
       <code>$this-&gt;lineLength - $prefixLength - $indentLength</code>
-      <code>$messages</code>
-      <code>$messages</code>
       <code>$this-&gt;lineLength - Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $line)</code>
-      <code>$type</code>
       <code>$length</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="1">
       <code>$dimensions[0]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="8">
       <code>$message</code>
+      <code>$default</code>
       <code>$answer</code>
       <code>$dimensions</code>
       <code>$prefixLength</code>
@@ -109,7 +119,7 @@
       <code>$dimensions[0] ?: self::MAX_LINE_LENGTH</code>
     </MixedReturnStatement>
     <PossiblyFalseArgument occurrences="1">
-      <code>explode(PHP_EOL, wordwrap($message, $this-&gt;lineLength - $prefixLength - $indentLength, PHP_EOL, true))</code>
+      <code>\explode(PHP_EOL, \wordwrap($message, $this-&gt;lineLength - $prefixLength - $indentLength, PHP_EOL, true))</code>
     </PossiblyFalseArgument>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
