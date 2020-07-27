@@ -30,7 +30,7 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             SetList::ARRAY_STR_FUNCTIONS_TO_STATIC_CALL,
             SetList::CODE_QUALITY,
             SetList::CODING_STYLE,
-            SetList::NAMING,
+            // SetList::NAMING, // Do not use in this library
             SetList::ORDER,
             SetList::PERFORMANCE,
             SetList::PHP_52,
@@ -77,7 +77,7 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
         ]
     );
 
-    $parameters->set(Option::IMPORT_SHORT_CLASSES_PARAMETER, false);
+    $parameters->set(Option::IMPORT_SHORT_CLASSES, false);
 
     $parameters->set(
         Option::EXCLUDE_RECTORS,
@@ -93,7 +93,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector::class,
             Rector\CodingStyle\Rector\Throw_\AnnotateThrowablesRector::class,
             Rector\CodingStyle\Rector\Use_\RemoveUnusedAliasRector::class,
-            Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector::class,
             Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector::class, // Maybe good one day
             Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector::class,
             Rector\SOLID\Rector\Property\AddFalseDefaultToBoolPropertyRector::class,
