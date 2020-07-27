@@ -25,16 +25,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Displays the custom console style implemented by SerendipityHQ.
  */
-class SerendipityHQStylesCommand extends Command
+final class SerendipityHQStylesCommand extends Command
 {
+    /** @var string $defaultName */
+    protected static $defaultName = 'console:styles:serendipityhq';
+
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure():void
     {
         $this
-            ->setName('console:styles:serendipityhq')
-            ->setDescription('A command to display all available SerendipityHQ\'s console style.')
+            ->setDescription("A command to display all available SerendipityHQ's console style.")
             ->addOption('show-ansi', null, InputOption::VALUE_NONE, 'Shows the ANSI colors.');
     }
 
@@ -42,9 +44,9 @@ class SerendipityHQStylesCommand extends Command
      * @param InputInterface  $input
      * @param OutputInterface $output
      *
-     * @return bool
+     * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output):int
     {
         $outputFormatter = new SerendipityHQOutputFormatter(true);
         $ioWriter        = new SerendipityHQStyle($input, $output);
@@ -113,6 +115,6 @@ class SerendipityHQStylesCommand extends Command
         $ioWriter->warningLine('This is a warning line.');
         $ioWriter->warningLineNoBg('This is a warning line without background.');
 
-        return true;
+        return 0;
     }
 }

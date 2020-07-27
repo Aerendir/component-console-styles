@@ -15,6 +15,7 @@
 
 namespace SerendipityHQ\Bundle\ConsoleStyles\Console\Style;
 
+use SerendipityHQ\Bundle\ConsoleStyles\Console\ConsoleStyles;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Symfony\Component\Console\Formatter\OutputFormatter;
@@ -38,9 +39,13 @@ use Symfony\Component\Console\Style\OutputStyle;
  * @author Kevin Bond <kevinbond@gmail.com>
  * @author Adamo Aerendir Crespi <hello@aerendir.me>
  */
-class SerendipityHQStyle extends OutputStyle
+final class SerendipityHQStyle extends OutputStyle
 {
-    const MAX_LINE_LENGTH = 120;
+    /** @var int */
+    private const MAX_LINE_LENGTH = 120;
+
+    /** @var string */
+    private const CAUTION = 'CAUTION';
 
     /** @var InputInterface $input */
     private $input;
@@ -66,11 +71,11 @@ class SerendipityHQStyle extends OutputStyle
         $this->input          = $input;
         $this->bufferedOutput = new BufferedOutput($output->getVerbosity(), false, clone $output->getFormatter());
         // Windows cmd wraps lines as soon as the terminal width is reached, whether there are following chars or not.
-        $this->lineLength = min($this->getTerminalWidth() - (int) (DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
+        $this->lineLength = \min($this->getTerminalWidth() - (int) (DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
 
-        if (class_exists('\Symfony\Component\Console\Terminal')) {
+        if (\class_exists(\Symfony\Component\Console\Terminal::class)) {
             $width            = (new \Symfony\Component\Console\Terminal())->getWidth() ?: self::MAX_LINE_LENGTH;
-            $this->lineLength = min($width - (int) (DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
+            $this->lineLength = \min($width - (int) (DIRECTORY_SEPARATOR === '\\'), self::MAX_LINE_LENGTH);
         }
 
         // This is required as the parent::$output is private :(
@@ -86,9 +91,9 @@ class SerendipityHQStyle extends OutputStyle
      * @param string       $prefix   The prefix for the block
      * @param bool         $padding  Whether to add vertical padding
      */
-    public function block($messages, $type = null, $style = null, $prefix = ' ', $padding = false)
+    public function block($messages, ?string $type = null, ?string $style = null, string $prefix = ' ', bool $padding = false): void
     {
-        $messages = is_array($messages) ? array_values($messages) : [$messages];
+        $messages = \is_array($messages) ? \array_values($messages) : [$messages];
 
         $this->autoPrependBlock();
         $this->writeln($this->createBlock($messages, $type, $style, $prefix, $padding, true));
@@ -98,12 +103,12 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function title($message)
+    public function title($message): void
     {
         $this->autoPrependBlock();
         $this->writeln([
-            sprintf('<fg=green>%s</>', $message),
-            sprintf('<fg=green>%s</>', str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+            \Safe\sprintf('<fg=green>%s</>', $message),
+            \Safe\sprintf('<fg=green>%s</>', \str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
         ]);
         $this->newLine();
     }
@@ -111,12 +116,12 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function section($message)
+    public function section($message): void
     {
         $this->autoPrependBlock();
         $this->writeln([
-            sprintf('<fg=green>%s</>', $message),
-            sprintf('<fg=green>%s</>', str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+            \Safe\sprintf('<fg=green>%s</>', $message),
+            \Safe\sprintf('<fg=green>%s</>', \str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
         ]);
         $this->newLine();
     }
@@ -124,11 +129,11 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function listing(array $elements)
+    public function listing(array $elements): void
     {
         $this->autoPrependText();
-        $elements = array_map(function ($element) {
-            return sprintf(' * %s', $element);
+        $elements = \array_map(function ($element): string {
+            return \Safe\sprintf(' * %s', $element);
         }, $elements);
 
         $this->writeln($elements);
@@ -138,22 +143,22 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function text($message)
+    public function text($message): void
     {
         $this->autoPrependText();
 
-        $messages = is_array($message) ? array_values($message) : [$message];
+        $messages = \is_array($message) ? \array_values($message) : [$message];
         foreach ($messages as $message) {
-            $this->writeln(sprintf(' %s', $message));
+            $this->writeln(\Safe\sprintf(' %s', $message));
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function caution($message)
+    public function caution($message): void
     {
-        $this->block($message, 'CAUTION', 'caution', ' ! ', true);
+        $this->block($message, self::CAUTION, 'caution', ' ! ', true);
     }
 
     /**
@@ -161,9 +166,9 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function cautionLine(string $message)
+    public function cautionLine(string $message): void
     {
-        $this->writeln($this->createLine($message, 'CAUTION', 'caution', ' ! '));
+        $this->writeln($this->createLine($message, self::CAUTION, 'caution', ' ! '));
     }
 
     /**
@@ -171,9 +176,9 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function cautionLineNoBg(string $message)
+    public function cautionLineNoBg(string $message): void
     {
-        $this->writeln($this->createLine($message, 'CAUTION', 'caution-nobg', ' ! '));
+        $this->writeln($this->createLine($message, self::CAUTION, ConsoleStyles::CAUTION_NOBG, ' ! '));
     }
 
     /**
@@ -181,9 +186,9 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param array|string $message
      */
-    public function comment($message)
+    public function comment($message): void
     {
-        $messages = is_array($message) ? array_values($message) : [$message];
+        $messages = \is_array($message) ? \array_values($message) : [$message];
 
         $this->block($messages, 'COMMENT', 'comment', ' // ', true);
     }
@@ -193,9 +198,9 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param array|string $message
      */
-    public function commentNoBg($message)
+    public function commentNoBg($message): void
     {
-        $messages = is_array($message) ? array_values($message) : [$message];
+        $messages = \is_array($message) ? \array_values($message) : [$message];
 
         $this->block($messages, 'COMMENT', 'comment-nobg', ' // ', true);
     }
@@ -205,7 +210,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function commentLine(string $message)
+    public function commentLine(string $message): void
     {
         $this->writeln($this->createLine($message, null, 'comment', ' // '));
     }
@@ -215,7 +220,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function commentLineNoBg(string $message)
+    public function commentLineNoBg(string $message): void
     {
         $this->writeln($this->createLine($message, null, 'comment-nobg', ' // '));
     }
@@ -223,7 +228,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function error($message)
+    public function error($message): void
     {
         $this->block($message, "\xE2\x9C\x96", 'error', ' ', true);
     }
@@ -233,7 +238,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function errorLine(string $message)
+    public function errorLine(string $message): void
     {
         $this->writeln($this->createLine($message, "\xE2\x9C\x96", 'error'));
     }
@@ -243,7 +248,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function errorLineNoBg(string $message)
+    public function errorLineNoBg(string $message): void
     {
         $this->writeln($this->createLine($message, "\xE2\x9C\x96", 'error-nobg'));
     }
@@ -251,7 +256,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function info($message)
+    public function info($message): void
     {
         $this->block($message, 'INFO', 'info', ' ', true);
     }
@@ -261,7 +266,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function infoLine(string $message)
+    public function infoLine(string $message): void
     {
         $this->writeln($this->createLine($message, '>', 'info'));
     }
@@ -271,7 +276,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function infoLineNoBg(string $message)
+    public function infoLineNoBg(string $message): void
     {
         $this->writeln($this->createLine($message, '>', 'info-nobg'));
     }
@@ -279,7 +284,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function note($message)
+    public function note($message): void
     {
         $this->block($message, 'NOTE', 'note', ' ! ', true);
     }
@@ -289,7 +294,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function noteLine(string $message)
+    public function noteLine(string $message): void
     {
         $this->writeln($this->createLine($message, '!', 'note'));
     }
@@ -299,7 +304,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function noteLineNoBg(string $message)
+    public function noteLineNoBg(string $message): void
     {
         $this->writeln($this->createLine($message, '!', 'note-nobg'));
     }
@@ -307,7 +312,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function success($message)
+    public function success($message): void
     {
         $this->block($message, "\xE2\x9C\x94", 'success', ' ', true);
     }
@@ -317,7 +322,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function successLine(string $message)
+    public function successLine(string $message): void
     {
         $this->writeln($this->createLine($message, "\xE2\x9C\x94", 'success'));
     }
@@ -327,7 +332,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function successLineNoBg(string $message)
+    public function successLineNoBg(string $message): void
     {
         $this->writeln($this->createLine($message, "\xE2\x9C\x94", 'success-nobg'));
     }
@@ -335,7 +340,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function warning($message)
+    public function warning($message): void
     {
         $this->block($message, 'WARNING', 'warning', ' ! ', true);
     }
@@ -345,7 +350,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function warningLine(string $message)
+    public function warningLine(string $message): void
     {
         $this->writeln($this->createLine($message, '!', 'warning'));
     }
@@ -355,7 +360,7 @@ class SerendipityHQStyle extends OutputStyle
      *
      * @param string $message
      */
-    public function warningLineNoBg(string $message)
+    public function warningLineNoBg(string $message): void
     {
         $this->writeln($this->createLine($message, '!', 'warning-nobg'));
     }
@@ -363,7 +368,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function table(array $headers, array $rows)
+    public function table(array $headers, array $rows): void
     {
         $style = clone Table::getStyleDefinition('symfony-style-guide');
         $style->setCellHeaderFormat('<fg=green>%s</>');
@@ -380,7 +385,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function ask($question, $default = null, $validator = null)
+    public function ask($question, $default = null, $validator = null): string
     {
         $question = new Question($question, $default);
         $question->setValidator($validator);
@@ -391,7 +396,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function askHidden($question, $validator = null)
+    public function askHidden($question, $validator = null): string
     {
         $question = new Question($question);
 
@@ -404,7 +409,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function confirm($question, $default = true)
+    public function confirm($question, $default = true): string
     {
         return $this->askQuestion(new ConfirmationQuestion($question, $default));
     }
@@ -412,10 +417,10 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function choice($question, array $choices, $default = null)
+    public function choice($question, array $choices, $default = null): string
     {
         if (null !== $default) {
-            $values  = array_flip($choices);
+            $values  = \Safe\array_flip($choices);
             $default = $values[$default];
         }
 
@@ -425,7 +430,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function progressStart($max = 0)
+    public function progressStart($max = 0): void
     {
         $this->progressBar = $this->createProgressBar($max);
         $this->progressBar->start();
@@ -434,7 +439,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function progressAdvance($step = 1)
+    public function progressAdvance($step = 1): void
     {
         $this->getProgressBar()->advance($step);
     }
@@ -442,7 +447,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function progressFinish()
+    public function progressFinish(): void
     {
         $this->getProgressBar()->finish();
         $this->newLine(2);
@@ -452,7 +457,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function createProgressBar($max = 0)
+    public function createProgressBar($max = 0): \Symfony\Component\Console\Helper\ProgressBar
     {
         $progressBar = parent::createProgressBar($max);
 
@@ -467,10 +472,8 @@ class SerendipityHQStyle extends OutputStyle
 
     /**
      * @param Question $question
-     *
-     * @return string
      */
-    public function askQuestion(Question $question)
+    public function askQuestion(Question $question): string
     {
         if ($this->input->isInteractive()) {
             $this->autoPrependBlock();
@@ -493,7 +496,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function writeln($messages, $type = self::OUTPUT_NORMAL)
+    public function writeln($messages, int $type = self::OUTPUT_NORMAL): void
     {
         parent::writeln($messages, $type);
         $this->bufferedOutput->writeln($this->reduceBuffer($messages), $type);
@@ -502,7 +505,7 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function write($messages, $newline = false, $type = self::OUTPUT_NORMAL)
+    public function write($messages, bool $newline = false, int $type = self::OUTPUT_NORMAL): void
     {
         parent::write($messages, $newline, $type);
         $this->bufferedOutput->write($this->reduceBuffer($messages), $newline, $type);
@@ -511,20 +514,18 @@ class SerendipityHQStyle extends OutputStyle
     /**
      * {@inheritdoc}
      */
-    public function newLine($count = 1)
+    public function newLine($count = 1): void
     {
         parent::newLine($count);
-        $this->bufferedOutput->write(str_repeat("\n", $count));
+        $this->bufferedOutput->write(\str_repeat("\n", $count));
     }
 
     /**
      * Returns a new instance which makes use of stderr if available.
-     *
-     * @return self
      */
-    public function getErrorStyle()
+    public function getErrorStyle(): \SerendipityHQ\Bundle\ConsoleStyles\Console\Style\SerendipityHQStyle
     {
-        if (method_exists($this, 'getErrorOutput')) {
+        if (\method_exists($this, 'getErrorOutput')) {
             return new self($this->input, $this->getErrorOutput());
         }
 
@@ -547,10 +548,7 @@ class SerendipityHQStyle extends OutputStyle
         return $this->lineLength;
     }
 
-    /**
-     * @return ProgressBar
-     */
-    protected function getProgressBar()
+    protected function getProgressBar(): \Symfony\Component\Console\Helper\ProgressBar
     {
         if ( ! $this->progressBar) {
             throw new RuntimeException('The ProgressBar is not started.');
@@ -567,7 +565,7 @@ class SerendipityHQStyle extends OutputStyle
         $application = new Application();
 
         // Compatibility with Symfony ~3
-        if (method_exists($application, 'getTerminalWidth')) {
+        if (\method_exists($application, 'getTerminalWidth')) {
             $dimensions  = $application->getTerminalDimensions();
 
             return $dimensions[0] ?: self::MAX_LINE_LENGTH;
@@ -576,38 +574,36 @@ class SerendipityHQStyle extends OutputStyle
         return self::MAX_LINE_LENGTH;
     }
 
-    protected function autoPrependBlock()
+    protected function autoPrependBlock(): void
     {
-        $chars = substr(str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
+        $chars = \Safe\substr(\str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
 
         if ( ! isset($chars[0])) {
             $this->newLine(); //empty history, so we should start with a new line.
         }
         // Prepend new line for each non LF chars (This means no blank line was output before)
-        $this->newLine(2 - substr_count($chars, "\n"));
+        $this->newLine(2 - \substr_count($chars, "\n"));
     }
 
-    protected function autoPrependText()
+    protected function autoPrependText(): void
     {
         $fetched = $this->bufferedOutput->fetch();
         //Prepend new line if last char isn't EOL:
-        if ("\n" !== substr($fetched, -1)) {
+        if ("\n" !== \Safe\substr($fetched, -1)) {
             $this->newLine();
         }
     }
 
     /**
      * @param $messages
-     *
-     * @return array
      */
-    protected function reduceBuffer($messages)
+    protected function reduceBuffer($messages): array
     {
         // We need to know if the two last chars are PHP_EOL
         // Preserve the last 4 chars inserted (PHP_EOL on windows is two chars) in the history buffer
-        return array_map(function ($value) {
-            return substr($value, -4);
-        }, array_merge([$this->bufferedOutput->fetch()], (array) $messages));
+        return \array_map(function ($value): string {
+            return \Safe\substr($value, -4);
+        }, \array_merge([$this->bufferedOutput->fetch()], (array) $messages));
     }
 
     /**
@@ -617,10 +613,8 @@ class SerendipityHQStyle extends OutputStyle
      * @param string $prefix
      * @param bool   $padding
      * @param bool   $escape
-     *
-     * @return array
      */
-    protected function createBlock($messages, $type = null, $style = null, $prefix = ' ', $padding = false, $escape = false)
+    protected function createBlock($messages, $type = null, $style = null, string $prefix = ' ', bool $padding = false, bool $escape = false): array
     {
         $indentLength = 0;
         $prefixLength = Helper::strlenWithoutDecoration($this->getFormatter(), $prefix);
@@ -628,9 +622,9 @@ class SerendipityHQStyle extends OutputStyle
 
         $lineIndentation = '';
         if (null !== $type) {
-            $type            = sprintf('[%s] ', $type);
-            $indentLength    = strlen($type);
-            $lineIndentation = str_repeat(' ', $indentLength);
+            $type            = \Safe\sprintf('[%s] ', $type);
+            $indentLength    = \strlen($type);
+            $lineIndentation = \str_repeat(' ', $indentLength);
         }
 
         // wrap and add newlines for each element
@@ -639,9 +633,9 @@ class SerendipityHQStyle extends OutputStyle
                 $message = OutputFormatter::escape($message);
             }
 
-            $lines = array_merge($lines, explode(PHP_EOL, wordwrap($message, $this->lineLength - $prefixLength - $indentLength, PHP_EOL, true)));
+            $lines = \array_merge($lines, \explode(PHP_EOL, \wordwrap($message, $this->lineLength - $prefixLength - $indentLength, PHP_EOL, true)));
 
-            if (count($messages) > 1 && $key < count($messages) - 1) {
+            if ((\is_array($messages) || $messages instanceof \Countable ? \count($messages) : 0) > 1 && $key < (\is_array($messages) || $messages instanceof \Countable ? \count($messages) : 0) - 1) {
                 $lines[] = '';
             }
         }
@@ -649,7 +643,7 @@ class SerendipityHQStyle extends OutputStyle
         $firstLineIndex = 0;
         if ($padding && $this->isDecorated()) {
             $firstLineIndex = 1;
-            array_unshift($lines, '');
+            \array_unshift($lines, '');
             $lines[] = '';
         }
 
@@ -659,10 +653,10 @@ class SerendipityHQStyle extends OutputStyle
             }
 
             $line = $prefix . $line;
-            $line .= str_repeat(' ', $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $line));
+            $line .= \str_repeat(' ', $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $line));
 
             if ($style) {
-                $line = sprintf('<%s>%s</>', $style, $line);
+                $line = \Safe\sprintf('<%s>%s</>', $style, $line);
             }
         }
 
@@ -675,28 +669,26 @@ class SerendipityHQStyle extends OutputStyle
      * @param null   $style
      * @param string $prefix
      * @param bool   $escape
-     *
-     * @return string
      */
-    protected function createLine($message, $type = null, $style = null, $prefix = '', $escape = false)
+    protected function createLine(string $message, $type = null, $style = null, string $prefix = '', bool $escape = false): string
     {
         if ($escape) {
             $message = OutputFormatter::escape($message);
         }
 
         if (null !== $type) {
-            $message = sprintf('[%s] %s', $type, $message);
+            $message = \Safe\sprintf('[%s] %s', $type, $message);
         }
 
         $message = $prefix . $message;
         $length  = $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $message);
 
         if (0 < $length) {
-            $message .= str_repeat(' ', $length);
+            $message .= \str_repeat(' ', $length);
         }
 
         if ($style) {
-            $message = sprintf('<%s>%s</>', $style, $message);
+            $message = \Safe\sprintf('<%s>%s</>', $style, $message);
         }
 
         return $message;

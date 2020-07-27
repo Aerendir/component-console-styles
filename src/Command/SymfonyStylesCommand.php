@@ -24,16 +24,18 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 /**
  * Displays the custom console style implemented by Symfony.
  */
-class SymfonyStylesCommand extends Command
+final class SymfonyStylesCommand extends Command
 {
+    /** @var string $defaultName */
+    protected static $defaultName = 'console:styles:symfony';
+
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setName('console:styles:symfony')
-            ->setDescription('A command to display all available Symfony\'s console style.')
+            ->setDescription("A command to display all available Symfony's console style.")
             ->addOption('show-ansi', null, InputOption::VALUE_NONE, 'Shows the ANSI colors.');
     }
 
@@ -41,9 +43,9 @@ class SymfonyStylesCommand extends Command
      * @param InputInterface  $input
      * @param OutputInterface $output
      *
-     * @return bool
+     * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $ioWriter = new SymfonyStyle($input, $output);
 
@@ -77,6 +79,6 @@ class SymfonyStylesCommand extends Command
         $ioWriter->success('This is a success block');
         $ioWriter->warning('This is a warning block');
 
-        return true;
+        return 0;
     }
 }

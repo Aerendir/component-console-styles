@@ -4,7 +4,7 @@ namespace SerendipityHQ\Bundle\ConsoleStyles\Console;
 /**
  * Constants that define colors available in CLI.
  */
-class ConsoleColors
+final class ConsoleColors
 {
     /** @var string */
     public const BLACK = 'black';

@@ -4,7 +4,7 @@ namespace SerendipityHQ\Bundle\ConsoleStyles\Console;
 /**
  * Constants that define styles available in CLI.
  */
-class ConsoleStyles
+final class ConsoleStyles
 {
     /** @var string */
     public const CAUTION = 'caution';
