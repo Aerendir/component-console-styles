@@ -13,14 +13,14 @@ return [
     // PhanParamSignatureRealMismatchHasNoParamType : 10+ occurrences
     // PhanUnreferencedProtectedProperty : 2 occurrences
     // PhanParamSignatureMismatch : 1 occurrence
-    // PhanTypeMismatchProperty : 1 occurrence
+    // PhanTypeMismatchPropertyProbablyReal : 1 occurrence
     // PhanUndeclaredMethod : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
         'src/Command/SerendipityHQStylesCommand.php' => ['PhanUnreferencedProtectedProperty'],
         'src/Command/SymfonyStylesCommand.php' => ['PhanUnreferencedProtectedProperty'],
-        'src/Console/Style/SerendipityHQStyle.php' => ['PhanParamSignatureMismatch', 'PhanParamSignatureRealMismatchHasNoParamType', 'PhanTypeMismatchArgument', 'PhanTypeMismatchProperty', 'PhanUndeclaredMethod'],
+        'src/Console/Style/SerendipityHQStyle.php' => ['PhanParamSignatureMismatch', 'PhanParamSignatureRealMismatchHasNoParamType', 'PhanTypeMismatchArgument', 'PhanTypeMismatchPropertyProbablyReal', 'PhanUndeclaredMethod'],
     ],
     // 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.
     // (directory_suppressions will currently be ignored by subsequent calls to --save-baseline, but may be preserved in future Phan releases)
