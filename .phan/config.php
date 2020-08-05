@@ -48,6 +48,10 @@ return [
     'suppress_issue_types' => [
         'PhanUnreferencedPublicMethod',
         'PhanUnreferencedClass',
+
+        // The class SerendipityHQStyle is declared two times and Phan complains about this
+        // Remove once the class will be unique (reasonably, when support for SF4 will be dropped)
+        'PhanRedefinedClassReference', 'PhanRedefineClass', 'PhanUndeclaredExtendedClass'
     ],
 
     // A regular expression to match files to be excluded
@@ -57,7 +61,7 @@ return [
     // directories/files, unanalyzable files, or files that
     // can't be removed for whatever reason.
     // (e.g. '@Test\.php$@', or '@vendor/.*/(tests|Tests)/@')
-    'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/@',
+    'exclude_file_regex' => '@(^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/)|(src/Console/Style/SF4/SerendipityHQStyleSF4)@',
     'plugins' => [
         'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
         'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php'

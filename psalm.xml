@@ -20,13 +20,20 @@
         <directory name="tests"/>
         <ignoreFiles>
             <directory name="vendor"/>
+            <directory name="src/Console/Style/SF4"/>
         </ignoreFiles>
     </projectFiles>
 
     <issueHandlers>
         <MissingThrowsDocblock errorLevel="suppress" />
+
         <!-- Compatibility issue with SF3.4: Remove when support will be dropped -->
         <DocblockTypeContradiction errorLevel="suppress" />
+        <RedundantCondition errorLevel="suppress" />
+
+        <!-- Compatibility issue with SF4: Remove when support will be dropped -->
+        <DuplicateClass errorLevel="suppress" />
+        <MethodSignatureMismatch errorLevel="suppress" />
     </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>

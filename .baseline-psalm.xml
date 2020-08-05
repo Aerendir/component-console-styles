@@ -13,7 +13,7 @@
       <code>$styles</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="src/Console/Style/SerendipityHQStyle.php">
+  <file src="src/Console/Style/SerendipityHQStyleSF5.php">
     <ImplementedReturnTypeMismatch occurrences="1">
       <code>string</code>
     </ImplementedReturnTypeMismatch>

@@ -20,7 +20,7 @@ return [
     'file_suppressions' => [
         'src/Command/SerendipityHQStylesCommand.php' => ['PhanUnreferencedProtectedProperty'],
         'src/Command/SymfonyStylesCommand.php' => ['PhanUnreferencedProtectedProperty'],
-        'src/Console/Style/SerendipityHQStyle.php' => ['PhanParamSignatureMismatch', 'PhanParamSignatureRealMismatchHasNoParamType', 'PhanTypeMismatchArgument', 'PhanTypeMismatchPropertyProbablyReal', 'PhanUndeclaredMethod'],
+        'src/Console/Style/SerendipityHQStyleSF5.php' => ['PhanParamSignatureMismatch', 'PhanParamSignatureRealMismatchHasNoParamType', 'PhanTypeMismatchArgument', 'PhanTypeMismatchPropertyProbablyReal', 'PhanUndeclaredMethod'],
     ],
     // 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.
     // (directory_suppressions will currently be ignored by subsequent calls to --save-baseline, but may be preserved in future Phan releases)

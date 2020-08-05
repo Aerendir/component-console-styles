@@ -6,232 +6,207 @@ parameters:
 			path: src/Console/Formatter/SerendipityHQOutputFormatter.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:block\\(\\) has parameter \\$messages with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:block\\(\\) has parameter \\$messages with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Parameter \\#2 \\$type of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createBlock\\(\\) expects null, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$type of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createBlock\\(\\) expects null, string\\|null given\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Parameter \\#3 \\$style of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createBlock\\(\\) expects null, string\\|null given\\.$#"
+			message: "#^Parameter \\#3 \\$style of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createBlock\\(\\) expects null, string\\|null given\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:title\\(\\) has parameter \\$message with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:title\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:section\\(\\) has parameter \\$message with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:section\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:listing\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:listing\\(\\) has parameter \\$elements with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:text\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:text\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:caution\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:caution\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Parameter \\#2 \\$type of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createLine\\(\\) expects null, string given\\.$#"
+			message: "#^Parameter \\#2 \\$type of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createLine\\(\\) expects null, string given\\.$#"
 			count: 12
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Parameter \\#3 \\$style of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createLine\\(\\) expects null, string given\\.$#"
+			message: "#^Parameter \\#3 \\$style of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createLine\\(\\) expects null, string given\\.$#"
 			count: 14
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:comment\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:comment\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:commentNoBg\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:commentNoBg\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:error\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:error\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:info\\(\\) has parameter \\$message with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:info\\(\\) has parameter \\$message with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:note\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:note\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:success\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:success\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:warning\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:warning\\(\\) has parameter \\$message with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:table\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:table\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:table\\(\\) has parameter \\$rows with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:table\\(\\) has parameter \\$rows with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:ask\\(\\) has parameter \\$default with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:confirm\\(\\) has parameter \\$default with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:ask\\(\\) has parameter \\$question with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:confirm\\(\\) has parameter \\$question with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:ask\\(\\) has parameter \\$validator with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:askHidden\\(\\) has parameter \\$question with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:askHidden\\(\\) has parameter \\$validator with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:confirm\\(\\) has parameter \\$default with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:confirm\\(\\) has parameter \\$question with no typehint specified\\.$#"
-			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
-
-		-
-			message: "#^Return type \\(string\\) of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:confirm\\(\\) should be compatible with return type \\(bool\\) of method Symfony\\\\Component\\\\Console\\\\Style\\\\StyleInterface\\:\\:confirm\\(\\)$#"
+			message: "#^Return type \\(string\\) of method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:confirm\\(\\) should be compatible with return type \\(bool\\) of method Symfony\\\\Component\\\\Console\\\\Style\\\\StyleInterface\\:\\:confirm\\(\\)$#"
 			count: 2
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:choice\\(\\) has parameter \\$choices with no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:choice\\(\\) has parameter \\$choices with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:choice\\(\\) has parameter \\$question with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:choice\\(\\) has parameter \\$question with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressStart\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:progressStart\\(\\) has parameter \\$max with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:progressAdvance\\(\\) has parameter \\$step with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:progressAdvance\\(\\) has parameter \\$step with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Property SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:\\$progressBar \\(Symfony\\\\Component\\\\Console\\\\Helper\\\\ProgressBar\\) does not accept null\\.$#"
+			message: "#^Property SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:\\$progressBar \\(Symfony\\\\Component\\\\Console\\\\Helper\\\\ProgressBar\\) does not accept null\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createProgressBar\\(\\) has parameter \\$max with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createProgressBar\\(\\) has parameter \\$max with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
 			count: 2
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:writeln\\(\\) has parameter \\$messages with no value type specified in iterable type iterable\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:writeln\\(\\) has parameter \\$messages with no value type specified in iterable type iterable\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:write\\(\\) has parameter \\$messages with no value type specified in iterable type iterable\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:write\\(\\) has parameter \\$messages with no value type specified in iterable type iterable\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:newLine\\(\\) has parameter \\$count with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:newLine\\(\\) has parameter \\$count with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Console\\\\Application\\:\\:getTerminalDimensions\\(\\)\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:reduceBuffer\\(\\) has parameter \\$messages with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:reduceBuffer\\(\\) has parameter \\$messages with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:reduceBuffer\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:reduceBuffer\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
 			message: "#^PHPDoc tag @param has invalid value \\(\\$messages\\)\\: Unexpected token \"\\$messages\", expected type at offset 18$#"
 			count: 2
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createBlock\\(\\) has parameter \\$messages with no typehint specified\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createBlock\\(\\) has parameter \\$messages with no typehint specified\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyle\\:\\:createBlock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method SerendipityHQ\\\\Bundle\\\\ConsoleStyles\\\\Console\\\\Style\\\\SerendipityHQStyleSF5\\:\\:createBlock\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
 			message: "#^Strict comparison using \\!\\=\\= between null and null will always evaluate to false\\.$#"
 			count: 3
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
 			message: "#^If condition is always false\\.$#"
 			count: 2
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 
 		-
 			message: "#^Parameter \\#2 \\$multiplier of function str_repeat expects int, float\\|int\\<1, max\\> given\\.$#"
 			count: 1
-			path: src/Console/Style/SerendipityHQStyle.php
+			path: src/Console/Style/SerendipityHQStyleSF5.php
 

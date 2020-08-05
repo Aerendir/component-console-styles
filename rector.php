@@ -26,7 +26,8 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
     ]);
 
     $parameters->set(Option::EXCLUDE_PATHS, [
-        __DIR__ . '/tests/bootstrap.php'
+        __DIR__ . '/tests/bootstrap.php',
+        __DIR__ . '/src/Console/Style/SF4/SerendipityHQStyleSF4.php'
     ]);
 
     $parameters->set(Option::AUTOLOAD_PATHS, [__DIR__ . '/vendor-bin/phpunit/vendor/autoload.php']);
@@ -95,6 +96,10 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector::class,
             Rector\TypeDeclaration\Rector\ClassMethod\AddArrayParamDocTypeRector::class,
             Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector::class,
+
+            // This makes impossible to extends *SF4 or *SF5 depending on the installed version of symfony/console
+            // Remove once support for SF4.4 will be dropped
+            Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector::class
         ]
     );
 };
