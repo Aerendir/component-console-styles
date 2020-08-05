@@ -631,7 +631,7 @@ final class SerendipityHQStyle extends OutputStyle
 
             $lines = \array_merge($lines, \explode(PHP_EOL, \wordwrap($message, $this->lineLength - $prefixLength - $indentLength, PHP_EOL, true)));
 
-            if ((\is_array($messages) || $messages instanceof \Countable ? \count($messages) : 0) > 1 && $key < (\is_array($messages) || $messages instanceof \Countable ? \count($messages) : 0) - 1) {
+            if ((\is_countable($messages) ? \count($messages) : 0) > 1 && $key < (\is_countable($messages) ? \count($messages) : 0) - 1) {
                 $lines[] = '';
             }
         }
