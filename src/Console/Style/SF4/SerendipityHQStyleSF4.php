@@ -521,7 +521,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
     /**
      * Returns a new instance which makes use of stderr if available.
      */
-    public function getErrorStyle(): \SerendipityHQ\Bundle\ConsoleStyles\Console\Style\SerendipityHQStyleSF4
+    public function getErrorStyle(): \SerendipityHQ\Bundle\ConsoleStyles\Console\Style\SF4\SerendipityHQStyleSF4
     {
         if (\method_exists($this, 'getErrorOutput')) {
             return new self($this->input, $this->getErrorOutput());
