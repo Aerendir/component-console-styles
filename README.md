@@ -16,6 +16,12 @@
 
 ## Current Status
 
+<hr />
+This component is deprecated.
+
+Use [`SymfonyStyle`](https://symfony.com/doc/current/console/coloring.html) or an appropriate [level of logging](https://github.com/Seldaek/monolog/blob/master/doc/01-usage.md#log-levels).
+<hr />
+
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-console-styles&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_component-console-styles)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-console-styles&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-console-styles)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-console-styles&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_component-console-styles)
