@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
+  <file src="src/Console/Formatter/SerendipityHQOutputFormatter.php">
+    <MissingParamType occurrences="2">
+      <code>$decorated</code>
+      <code>$styles</code>
+    </MissingParamType>
+    <MixedArgument occurrences="2">
+      <code>$styles</code>
+      <code>$decorated</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$styles</code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="src/Console/Style/SerendipityHQStyleSF5.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>string</code>
+    </ImplementedReturnTypeMismatch>
+    <InvalidArgument occurrences="28">
+      <code>$type</code>
+      <code>$style</code>
+      <code>self::CAUTION</code>
+      <code>'caution'</code>
+      <code>self::CAUTION</code>
+      <code>ConsoleStyles::CAUTION_NOBG</code>
+      <code>'comment'</code>
+      <code>'comment-nobg'</code>
+      <code>"\xE2\x9C\x96"</code>
+      <code>'error'</code>
+      <code>"\xE2\x9C\x96"</code>
+      <code>'error-nobg'</code>
+      <code>'&gt;'</code>
+      <code>'info'</code>
+      <code>'&gt;'</code>
+      <code>'info-nobg'</code>
+      <code>'!'</code>
+      <code>'note'</code>
+      <code>'!'</code>
+      <code>'note-nobg'</code>
+      <code>"\xE2\x9C\x94"</code>
+      <code>'success'</code>
+      <code>"\xE2\x9C\x94"</code>
+      <code>'success-nobg'</code>
+      <code>'!'</code>
+      <code>'warning'</code>
+      <code>'!'</code>
+      <code>'warning-nobg'</code>
+    </InvalidArgument>
+    <MissingParamType occurrences="17">
+      <code>$message</code>
+      <code>$message</code>
+      <code>$message</code>
+      <code>$question</code>
+      <code>$default</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$default</code>
+      <code>$question</code>
+      <code>$max</code>
+      <code>$step</code>
+      <code>$max</code>
+      <code>$count</code>
+      <code>$messages</code>
+      <code>$messages</code>
+    </MissingParamType>
+    <MixedArgument occurrences="20">
+      <code>Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $message)</code>
+      <code>Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $message)</code>
+      <code>$message</code>
+      <code>$question</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$validator</code>
+      <code>$question</code>
+      <code>$default</code>
+      <code>$question</code>
+      <code>$step</code>
+      <code>$max</code>
+      <code>$count</code>
+      <code>$this-&gt;getErrorOutput()</code>
+      <code>$value</code>
+      <code>$message</code>
+      <code>$message</code>
+      <code>$this-&gt;lineLength - $prefixLength - $indentLength</code>
+      <code>$this-&gt;lineLength - Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $line)</code>
+      <code>$length</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$dimensions[0]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="8">
+      <code>$message</code>
+      <code>$default</code>
+      <code>$answer</code>
+      <code>$dimensions</code>
+      <code>$prefixLength</code>
+      <code>$message</code>
+      <code>$line</code>
+      <code>$length</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>int</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="7">
+      <code>$prefixLength</code>
+      <code>$this-&gt;lineLength - $prefixLength</code>
+      <code>$line</code>
+      <code>$line</code>
+      <code>$line</code>
+      <code>Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $line)</code>
+      <code>Helper::strlenWithoutDecoration($this-&gt;getFormatter(), $message)</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="2">
+      <code>$answer</code>
+      <code>$dimensions[0] ?: self::MAX_LINE_LENGTH</code>
+    </MixedReturnStatement>
+    <PossiblyFalseArgument occurrences="1">
+      <code>\explode(PHP_EOL, \wordwrap($message, $this-&gt;lineLength - $prefixLength - $indentLength, PHP_EOL, true))</code>
+    </PossiblyFalseArgument>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>getTerminalDimensions</code>
+    </PossiblyUndefinedMethod>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$questionHelper</code>
+      <code>$progressBar</code>
+    </PropertyNotSetInConstructor>
+  </file>
+</files>
