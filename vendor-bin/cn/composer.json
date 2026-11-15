@@ -1,0 +1,13 @@
+{
+    "require": {
+        "php": "~8.2.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.48"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    }
+}
