@@ -475,7 +475,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
             $this->autoPrependBlock();
         }
 
-        if ( ! $this->questionHelper) {
+        if ( ! $this->questionHelper instanceof SymfonyQuestionHelper) {
             $this->questionHelper = new SymfonyQuestionHelper();
         }
 
@@ -553,7 +553,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     protected function getProgressBar(): ProgressBar
     {
-        if ( ! $this->progressBar) {
+        if ( ! $this->progressBar instanceof ProgressBar) {
             throw new RuntimeException('The ProgressBar is not started.');
         }
 
