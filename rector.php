@@ -67,7 +67,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             SetList::SOLID,
             SetList::SYMFONY_CODE_QUALITY,
             SetList::SYMFONY_PHPUNIT,
-            SetList::SAFE_07,
             SetList::TYPE_DECLARATION,
         ]
     );

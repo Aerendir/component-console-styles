@@ -114,8 +114,8 @@ class SerendipityHQStyleSF4 extends OutputStyle
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $this->autoPrependBlock();
         $this->writeln([
-                           \Safe\sprintf('<fg=green>%s</>', $message),
-                           \Safe\sprintf('<fg=green>%s</>', \str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+                           \sprintf('<fg=green>%s</>', $message),
+                           \sprintf('<fg=green>%s</>', \str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
                        ]);
         $this->newLine();
     }
@@ -130,8 +130,8 @@ class SerendipityHQStyleSF4 extends OutputStyle
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $this->autoPrependBlock();
         $this->writeln([
-                           \Safe\sprintf('<fg=green>%s</>', $message),
-                           \Safe\sprintf('<fg=green>%s</>', \str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+                           \sprintf('<fg=green>%s</>', $message),
+                           \sprintf('<fg=green>%s</>', \str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
                        ]);
         $this->newLine();
     }
@@ -146,7 +146,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $this->autoPrependText();
         $elements = \array_map(function ($element): string {
-            return \Safe\sprintf(' * %s', $element);
+            return \sprintf(' * %s', $element);
         }, $elements);
 
         $this->writeln($elements);
@@ -165,7 +165,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
 
         $messages = \is_array($message) ? \array_values($message) : [$message];
         foreach ($messages as $message) {
-            $this->writeln(\Safe\sprintf(' %s', $message));
+            $this->writeln(\sprintf(' %s', $message));
         }
     }
 
@@ -487,7 +487,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         if (null !== $default) {
-            $values  = \Safe\array_flip($choices);
+            $values  = \array_flip($choices);
             $default = $values[$default];
         }
 
@@ -676,7 +676,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
 
     protected function autoPrependBlock(): void
     {
-        $chars = \Safe\substr(\str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
+        $chars = \substr(\str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
 
         if ( ! isset($chars[0])) {
             $this->newLine(); //empty history, so we should start with a new line.
@@ -689,7 +689,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
     {
         $fetched = $this->bufferedOutput->fetch();
         //Prepend new line if last char isn't EOL:
-        if ("\n" !== \Safe\substr($fetched, -1)) {
+        if ("\n" !== \substr($fetched, -1)) {
             $this->newLine();
         }
     }
@@ -702,7 +702,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
         // We need to know if the two last chars are PHP_EOL
         // Preserve the last 4 chars inserted (PHP_EOL on windows is two chars) in the history buffer
         return \array_map(function ($value): string {
-            return \Safe\substr($value, -4);
+            return \substr($value, -4);
         }, \array_merge([$this->bufferedOutput->fetch()], (array) $messages));
     }
 
@@ -722,7 +722,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
 
         $lineIndentation = '';
         if (null !== $type) {
-            $type            = \Safe\sprintf('[%s] ', $type);
+            $type            = \sprintf('[%s] ', $type);
             $indentLength    = \strlen($type);
             $lineIndentation = \str_repeat(' ', $indentLength);
         }
@@ -756,7 +756,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
             $line .= \str_repeat(' ', $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $line));
 
             if ($style) {
-                $line = \Safe\sprintf('<%s>%s</>', $style, $line);
+                $line = \sprintf('<%s>%s</>', $style, $line);
             }
         }
 
@@ -777,7 +777,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
         }
 
         if (null !== $type) {
-            $message = \Safe\sprintf('[%s] %s', $type, $message);
+            $message = \sprintf('[%s] %s', $type, $message);
         }
 
         $message = $prefix . $message;
@@ -788,7 +788,7 @@ class SerendipityHQStyleSF4 extends OutputStyle
         }
 
         if ($style) {
-            $message = \Safe\sprintf('<%s>%s</>', $style, $message);
+            $message = \sprintf('<%s>%s</>', $style, $message);
         }
 
         return $message;
