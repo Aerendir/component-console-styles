@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Console Styles Component.
  *
@@ -21,10 +23,7 @@ use Symfony\Component\Console\Formatter\OutputFormatterStyle;
  */
 final class SerendipityHQOutputFormatter extends OutputFormatter
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function __construct($decorated = false, $styles = [])
+    public function __construct(bool $decorated = false, array $styles = [])
     {
         $styles = \array_merge([
             ConsoleStyles::CAUTION       => new OutputFormatterStyle(ConsoleColors::BLACK, ConsoleColors::YELLOW),

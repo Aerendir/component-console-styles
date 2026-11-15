@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Console Styles Component.
  *
@@ -11,15 +13,9 @@
 
 namespace SerendipityHQ\Bundle\ConsoleStyles\Console\Style;
 
-use PackageVersions\Versions;
-use SerendipityHQ\Bundle\ConsoleStyles\Console\Style\SF4\SerendipityHQStyleSF4;
-
-if (false !== \strpos(Versions::getVersion('symfony/console'), 'v5')) {
-    class SerendipityHQStyle extends SerendipityHQStyleSF5
-    {
-    }
-} else {
-    class SerendipityHQStyle extends SerendipityHQStyleSF4
-    {
-    }
+/**
+ * @deprecated SerendipityHQStyle is abandoned and will not be mantained anymore. Use Symfony\Component\Console\Style\SymfonyStyle instead.
+ */
+class SerendipityHQStyle extends SerendipityHQStyleSF5
+{
 }

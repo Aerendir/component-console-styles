@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Console Styles Component.
  *
@@ -11,6 +13,7 @@
 
 namespace SerendipityHQ\Bundle\ConsoleStyles\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -20,27 +23,15 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 /**
  * Displays the custom console style implemented by Symfony.
  */
+#[AsCommand(name: 'console:styles:symfony', description: "A command to display all available Symfony's console style.")]
 final class SymfonyStylesCommand extends Command
 {
-    /** @var string $defaultName */
-    protected static $defaultName = 'console:styles:symfony';
-
-    /**
-     * {@inheritdoc}
-     */
     protected function configure(): void
     {
         $this
-            ->setDescription("A command to display all available Symfony's console style.")
             ->addOption('show-ansi', null, InputOption::VALUE_NONE, 'Shows the ANSI colors.');
     }
 
-    /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $ioWriter = new SymfonyStyle($input, $output);
@@ -75,6 +66,6 @@ final class SymfonyStylesCommand extends Command
         $ioWriter->success('This is a success block');
         $ioWriter->warning('This is a warning block');
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

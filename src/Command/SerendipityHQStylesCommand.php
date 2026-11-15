@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Console Styles Component.
  *
@@ -13,6 +15,7 @@ namespace SerendipityHQ\Bundle\ConsoleStyles\Command;
 
 use SerendipityHQ\Bundle\ConsoleStyles\Console\Formatter\SerendipityHQOutputFormatter;
 use SerendipityHQ\Bundle\ConsoleStyles\Console\Style\SerendipityHQStyle;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -21,27 +24,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Displays the custom console style implemented by SerendipityHQ.
  */
+#[AsCommand(name: 'console:styles:serendipityhq', description: "A command to display all available SerendipityHQ's console style.")]
 final class SerendipityHQStylesCommand extends Command
 {
-    /** @var string $defaultName */
-    protected static $defaultName = 'console:styles:serendipityhq';
-
-    /**
-     * {@inheritdoc}
-     */
     protected function configure(): void
     {
         $this
-            ->setDescription("A command to display all available SerendipityHQ's console style.")
             ->addOption('show-ansi', null, InputOption::VALUE_NONE, 'Shows the ANSI colors.');
     }
 
-    /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $outputFormatter = new SerendipityHQOutputFormatter(true);
@@ -111,6 +102,6 @@ final class SerendipityHQStylesCommand extends Command
         $ioWriter->warningLine('This is a warning line.');
         $ioWriter->warningLineNoBg('This is a warning line without background.');
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

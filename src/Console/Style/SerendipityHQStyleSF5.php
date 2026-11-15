@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Console Styles Component.
  *
@@ -43,25 +45,12 @@ class SerendipityHQStyleSF5 extends OutputStyle
     /** @var string */
     private const CAUTION = 'CAUTION';
 
-    /** @var InputInterface $input */
-    private $input;
+    private InputInterface $input;
+    private ?SymfonyQuestionHelper $questionHelper = null;
+    private ?ProgressBar $progressBar              = null;
+    private int $lineLength;
+    private BufferedOutput $bufferedOutput;
 
-    /** @var SymfonyQuestionHelper $questionHelper */
-    private $questionHelper;
-
-    /** @var ProgressBar $progressBar */
-    private $progressBar;
-
-    /** @var int $lineLength */
-    private $lineLength;
-
-    /** @var BufferedOutput $bufferedOutput */
-    private $bufferedOutput;
-
-    /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     */
     public function __construct(InputInterface $input, OutputInterface $output)
     {
         trigger_error('SerendipityHQStyle is abandoned and will not be maintained anymore. Use Symfony\Component\Console\Style\SymfonyStyle instead.', E_USER_DEPRECATED);
@@ -84,7 +73,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
      * @param string       $prefix   The prefix for the block
      * @param bool         $padding  Whether to add vertical padding
      *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::block() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::block() instead
      */
     public function block($messages, ?string $type = null, ?string $style = null, string $prefix = ' ', bool $padding = false): void
     {
@@ -97,9 +86,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::title() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::title() instead
      */
     public function title($message): void
     {
@@ -107,15 +94,13 @@ class SerendipityHQStyleSF5 extends OutputStyle
         $this->autoPrependBlock();
         $this->writeln([
             \sprintf('<fg=green>%s</>', $message),
-            \sprintf('<fg=green>%s</>', \str_repeat('=', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+            \sprintf('<fg=green>%s</>', \str_repeat('=', Helper::width(Helper::removeDecoration($this->getFormatter(), $message)))),
         ]);
         $this->newLine();
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::section() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::section() instead
      */
     public function section($message): void
     {
@@ -123,21 +108,19 @@ class SerendipityHQStyleSF5 extends OutputStyle
         $this->autoPrependBlock();
         $this->writeln([
             \sprintf('<fg=green>%s</>', $message),
-            \sprintf('<fg=green>%s</>', \str_repeat('-', Helper::strlenWithoutDecoration($this->getFormatter(), $message))),
+            \sprintf('<fg=green>%s</>', \str_repeat('-', Helper::width(Helper::removeDecoration($this->getFormatter(), $message)))),
         ]);
         $this->newLine();
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::listing() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::listing() instead
      */
     public function listing(array $elements): void
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $this->autoPrependText();
-        $elements = \array_map(function ($element): string {
+        $elements = \array_map(function (string $element): string {
             return \sprintf(' * %s', $element);
         }, $elements);
 
@@ -146,9 +129,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::text() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::text() instead
      */
     public function text($message): void
     {
@@ -162,9 +143,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::caution() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::caution() instead
      */
     public function caution($message): void
     {
@@ -174,8 +153,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command comment as single line.
-     *
-     * @param string $message
      */
     public function cautionLine(string $message): void
     {
@@ -185,8 +162,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command comment as single line without the background.
-     *
-     * @param string $message
      */
     public function cautionLineNoBg(string $message): void
     {
@@ -199,7 +174,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
      *
      * @param array|string $message
      *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::comment() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::comment() instead
      */
     public function comment($message): void
     {
@@ -224,8 +199,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command comment as single line.
-     *
-     * @param string $message
      */
     public function commentLine(string $message): void
     {
@@ -235,8 +208,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command comment as single line without the background.
-     *
-     * @param string $message
      */
     public function commentLineNoBg(string $message): void
     {
@@ -245,9 +216,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::error() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::error() instead
      */
     public function error($message): void
     {
@@ -257,8 +226,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command error as single line.
-     *
-     * @param string $message
      */
     public function errorLine(string $message): void
     {
@@ -268,8 +235,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command error as single line without the background.
-     *
-     * @param string $message
      */
     public function errorLineNoBg(string $message): void
     {
@@ -278,7 +243,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * @deprecated No replacement suggested.
+     * @deprecated no replacement suggested
      */
     public function info($message): void
     {
@@ -288,8 +253,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command error as single line.
-     *
-     * @param string $message
      */
     public function infoLine(string $message): void
     {
@@ -299,8 +262,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command error as single line without the background.
-     *
-     * @param string $message
      */
     public function infoLineNoBg(string $message): void
     {
@@ -309,9 +270,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::note() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::note() instead
      */
     public function note($message): void
     {
@@ -321,8 +280,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command note as single line.
-     *
-     * @param string $message
      */
     public function noteLine(string $message): void
     {
@@ -332,8 +289,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command note as single line without the background.
-     *
-     * @param string $message
      */
     public function noteLineNoBg(string $message): void
     {
@@ -342,9 +297,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::success() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::success() instead
      */
     public function success($message): void
     {
@@ -354,8 +307,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command success as single line.
-     *
-     * @param string $message
      */
     public function successLine(string $message): void
     {
@@ -365,8 +316,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command success as single line without the background.
-     *
-     * @param string $message
      */
     public function successLineNoBg(string $message): void
     {
@@ -375,9 +324,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::warning() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::warning() instead
      */
     public function warning($message): void
     {
@@ -387,8 +334,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command error as single line.
-     *
-     * @param string $message
      */
     public function warningLine(string $message): void
     {
@@ -398,8 +343,6 @@ class SerendipityHQStyleSF5 extends OutputStyle
 
     /**
      * Formats a command error as single line without the background.
-     *
-     * @param string $message
      */
     public function warningLineNoBg(string $message): void
     {
@@ -408,9 +351,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::table() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::table() instead
      */
     public function table(array $headers, array $rows): void
     {
@@ -428,11 +369,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::ask() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::ask() instead
      */
-    public function ask(string $question, ?string $default = null, callable $validator = null): string
+    public function ask(string $question, ?string $default = null, ?callable $validator = null): mixed
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $question = new Question($question, $default);
@@ -442,11 +381,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::askHidden() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::askHidden() instead
      */
-    public function askHidden(string $question, callable $validator = null): string
+    public function askHidden(string $question, ?callable $validator = null): mixed
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $question = new Question($question);
@@ -458,22 +395,19 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::confirm() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::confirm() instead
      */
-    public function confirm($question, $default = true): string
+    public function confirm(string $question, bool $default = true): bool
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
-        return $this->askQuestion(new ConfirmationQuestion($question, $default));
+
+        return (bool) $this->askQuestion(new ConfirmationQuestion($question, $default));
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::choice() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::choice() instead
      */
-    public function choice($question, array $choices, $default = null): string
+    public function choice(string $question, array $choices, mixed $default = null): mixed
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         if (null !== $default) {
@@ -485,11 +419,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::progressStart() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::progressStart() instead
      */
-    public function progressStart($max = 0): void
+    public function progressStart(int $max = 0): void
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $this->progressBar = $this->createProgressBar($max);
@@ -497,20 +429,16 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::progressAdvance() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::progressAdvance() instead
      */
-    public function progressAdvance($step = 1): void
+    public function progressAdvance(int $step = 1): void
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $this->getProgressBar()->advance($step);
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::progressFinish() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::progressFinish() instead
      */
     public function progressFinish(): void
     {
@@ -521,11 +449,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::createProgressBar() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::createProgressBar() instead
      */
-    public function createProgressBar($max = 0): ProgressBar
+    public function createProgressBar(int $max = 0): ProgressBar
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         $progressBar = parent::createProgressBar($max);
@@ -540,11 +466,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * @param Question $question
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::askQuestion() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::askQuestion() instead
      */
-    public function askQuestion(Question $question): string
+    public function askQuestion(Question $question): mixed
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         if ($this->input->isInteractive()) {
@@ -566,11 +490,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::writeln() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::writeln() instead
      */
-    public function writeln($messages, int $type = self::OUTPUT_NORMAL): void
+    public function writeln(string|iterable $messages, int $type = self::OUTPUT_NORMAL): void
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         parent::writeln($messages, $type);
@@ -578,11 +500,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::write() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::write() instead
      */
-    public function write($messages, bool $newline = false, int $type = self::OUTPUT_NORMAL): void
+    public function write(string|iterable $messages, bool $newline = false, int $type = self::OUTPUT_NORMAL): void
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         parent::write($messages, $newline, $type);
@@ -590,11 +510,9 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::newLine() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::newLine() instead
      */
-    public function newLine($count = 1): void
+    public function newLine(int $count = 1): void
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
         parent::newLine($count);
@@ -604,37 +522,32 @@ class SerendipityHQStyleSF5 extends OutputStyle
     /**
      * Returns a new instance which makes use of stderr if available.
      *
-     * @deprecated Use Symfony\Component\Console\Style\SymfonyStyle::getErrorStyle() instead.
+     * @deprecated use Symfony\Component\Console\Style\SymfonyStyle::getErrorStyle() instead
      */
     public function getErrorStyle(): SerendipityHQStyleSF5
     {
         trigger_error('Use Symfony\Component\Console\Style\SymfonyStyle corresponding method instead.', E_USER_DEPRECATED);
-        if (\method_exists($this, 'getErrorOutput')) {
-            return new self($this->input, $this->getErrorOutput());
-        }
 
-        return $this;
+        return new self($this->input, $this->getErrorOutput());
     }
 
     /**
-     * @return InputInterface
-     *
      * @deprecated No replacement suggested
      */
     public function getInput(): InputInterface
     {
         trigger_error('No replacement suggested.', E_USER_DEPRECATED);
+
         return $this->input;
     }
 
     /**
-     * @return int
-     *
-     * @deprecated No replacement suggested.
+     * @deprecated no replacement suggested
      */
     public function getLineLength(): int
     {
         trigger_error('No replacement suggested.', E_USER_DEPRECATED);
+
         return $this->lineLength;
     }
 
@@ -652,7 +565,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
         $chars = \substr(\str_replace(PHP_EOL, "\n", $this->bufferedOutput->fetch()), -2);
 
         if ( ! isset($chars[0])) {
-            $this->newLine(); //empty history, so we should start with a new line.
+            $this->newLine(); // empty history, so we should start with a new line.
         }
         // Prepend new line for each non LF chars (This means no blank line was output before)
         $this->newLine(2 - \substr_count($chars, "\n"));
@@ -661,36 +574,34 @@ class SerendipityHQStyleSF5 extends OutputStyle
     protected function autoPrependText(): void
     {
         $fetched = $this->bufferedOutput->fetch();
-        //Prepend new line if last char isn't EOL:
+        // Prepend new line if last char isn't EOL:
         if ("\n" !== \substr($fetched, -1)) {
             $this->newLine();
         }
     }
 
     /**
-     * @param $messages
+     * @param iterable<string>|string $messages
+     *
+     * @return string[]
      */
-    protected function reduceBuffer($messages): array
+    protected function reduceBuffer(string|iterable $messages): array
     {
         // We need to know if the two last chars are PHP_EOL
         // Preserve the last 4 chars inserted (PHP_EOL on windows is two chars) in the history buffer
         return \array_map(function ($value): string {
             return \substr($value, -4);
-        }, \array_merge([$this->bufferedOutput->fetch()], (array) $messages));
+        }, \array_merge([$this->bufferedOutput->fetch()], \is_string($messages) ? [$messages] : \iterator_to_array($messages, false)));
     }
 
     /**
-     * @param $messages
-     * @param null   $type
-     * @param null   $style
-     * @param string $prefix
-     * @param bool   $padding
-     * @param bool   $escape
+     * @param null $type
+     * @param null $style
      */
     protected function createBlock($messages, $type = null, $style = null, string $prefix = ' ', bool $padding = false, bool $escape = false): array
     {
         $indentLength = 0;
-        $prefixLength = Helper::strlenWithoutDecoration($this->getFormatter(), $prefix);
+        $prefixLength = Helper::width(Helper::removeDecoration($this->getFormatter(), $prefix));
         $lines        = [];
 
         $lineIndentation = '';
@@ -726,7 +637,7 @@ class SerendipityHQStyleSF5 extends OutputStyle
             }
 
             $line = $prefix . $line;
-            $line .= \str_repeat(' ', $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $line));
+            $line .= \str_repeat(' ', \max($this->lineLength - Helper::width(Helper::removeDecoration($this->getFormatter(), $line)), 0));
 
             if ($style) {
                 $line = \sprintf('<%s>%s</>', $style, $line);
@@ -737,11 +648,8 @@ class SerendipityHQStyleSF5 extends OutputStyle
     }
 
     /**
-     * @param string $message
-     * @param null   $type
-     * @param null   $style
-     * @param string $prefix
-     * @param bool   $escape
+     * @param null $type
+     * @param null $style
      */
     protected function createLine(string $message, $type = null, $style = null, string $prefix = '', bool $escape = false): string
     {
@@ -754,14 +662,14 @@ class SerendipityHQStyleSF5 extends OutputStyle
         }
 
         $message = $prefix . $message;
-        $length  = $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $message);
+        $length  = $this->lineLength - Helper::width(Helper::removeDecoration($this->getFormatter(), $message));
 
         if (0 < $length) {
             $message .= \str_repeat(' ', $length);
         }
 
         if ($style) {
-            $message = \sprintf('<%s>%s</>', $style, $message);
+            return \sprintf('<%s>%s</>', $style, $message);
         }
 
         return $message;
