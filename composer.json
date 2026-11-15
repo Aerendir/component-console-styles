@@ -1,29 +1,30 @@
 {
     "name": "serendipity_hq/component-console-styles",
     "description": "Provides advanced styles for Symfony Console.",
-    "homepage": "https://github.com/Aerendir/component-console-styles",
+    "license": "MIT",
     "type": "library",
     "keywords": [],
-    "license": "MIT",
-    "support": {
-        "issues": "https://github.com/Aerendir/component-console-styles/issues"
-    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
             "email": "aerendir@serendipityhq.com"
         }
     ],
+    "homepage": "https://github.com/Aerendir/component-console-styles",
+    "support": {
+        "issues": "https://github.com/Aerendir/component-console-styles/issues"
+    },
     "require": {
-        "php": "^7.3",
-        "ocramius/package-versions": "^1.5",
-        "symfony/console": "^4.4|^5.1",
-        "thecodingmachine/safe": "^1.0"
+        "php": "^8.2",
+        "symfony/console": "^6.4 || ^7.4 || ^8.0"
     },
     "require-dev": {
-        "ext-ast": "*",
         "bamarni/composer-bin-plugin": "^1.4",
-        "roave/security-advisories": "dev-master"
+        "phpstan/phpstan": "2.2.17",
+        "phpstan/phpstan-phpunit": "2.0.21",
+        "rector/rector": "2.6.7",
+        "roave/security-advisories": "dev-master",
+        "serendipity_hq/rector-config": "1.1.20"
     },
     "autoload": {
         "psr-4": {
@@ -36,11 +37,95 @@
         }
     },
     "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        },
         "sort-packages": true
     },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false
+        }
+    },
     "scripts": {
+        "post-install-cmd": [
+            "@composer bin all install --ansi"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi"
+        ],
         "bin": "echo 'bin not installed'",
-        "post-install-cmd": ["@composer bin all install --ansi"],
-        "post-update-cmd": ["@composer bin all update --ansi"]
+        "bl": [
+            "@bl:phpstan",
+            "@bl:psalm"
+        ],
+        "bl:phpstan": [
+            "vendor/bin/phpstan analyse --generate-baseline .baseline-phpstan.neon"
+        ],
+        "bl:psalm": [
+            "vendor-bin/phpunit/vendor/bin/psalm --set-baseline=.baseline-psalm.xml"
+        ],
+        "fix": [
+            "@fix:rector",
+            "@fix:phpcs",
+            "@fix:cn"
+        ],
+        "fix:cn": [
+            "composer bin cn normalize ./../../composer.json --no-scripts --no-update-lock"
+        ],
+        "fix:phpcs": [
+            "vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes -v"
+        ],
+        "fix:rector": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/rector process"
+        ],
+        "test": [
+            "@test:run"
+        ],
+        "test:coverage": [
+            "@test:run:coverage"
+        ],
+        "test:run": [
+            "@php vendor-bin/phpunit/vendor/bin/phpunit"
+        ],
+        "test:run:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@test:run --coverage-html ./var/coverage/coverage-html --coverage-clover ./var/coverage/clover.xml --coverage-xml ./var/coverage/coverage-xml --log-junit ./var/coverage/junit.xml"
+        ],
+        "val": [
+            "@val:style",
+            "@val:static"
+        ],
+        "val:cn": [
+            "composer bin cn normalize ./../../composer.json --dry-run"
+        ],
+        "val:composer": [
+            "@val:cn",
+            "composer audit",
+            "composer validate --strict --check-lock"
+        ],
+        "val:phpcs": [
+            "vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes -v --dry-run"
+        ],
+        "val:phpstan": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "val:psalm": [
+            "vendor-bin/phpunit/vendor/bin/psalm"
+        ],
+        "val:rector": [
+            "vendor/bin/rector process --dry-run"
+        ],
+        "val:static": [
+            "@val:composer",
+            "@val:phpstan",
+            "@val:psalm"
+        ],
+        "val:style": [
+            "@val:rector",
+            "@val:phpcs",
+            "@val:cn"
+        ]
     }
 }
