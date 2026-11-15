@@ -1,14 +1,13 @@
 includes:
     - .baseline-phpstan.neon
-    - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
-    - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/rules.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
 
 parameters:
+    reportUnmatchedIgnoredErrors: false
     level: max
     bootstrapFiles:
         - vendor-bin/phpunit/vendor/autoload.php
     paths:
         - src
         - tests
-    excludes_analyse:
-        - src/Console/Style/SF4/SerendipityHQStyleSF4

@@ -1,15 +1,12 @@
 <?xml version="1.0"?>
 <psalm
-    phpVersion="7.3"
+    phpVersion="8.2"
     cacheDirectory="./var/cache/psalm"
-    allowPhpStormGenerics="true"
     checkForThrowsDocblock="true"
     hideExternalErrors="true"
     ignoreInternalFunctionNullReturn="false"
     ignoreInternalFunctionFalseReturn="false"
-    requireVoidReturnType="false"
     strictBinaryOperands="true"
-    totallyTyped="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="vendor-bin/phpunit/vendor/vimeo/psalm/config.xsd"
@@ -20,20 +17,27 @@
         <directory name="tests"/>
         <ignoreFiles>
             <directory name="vendor"/>
-            <directory name="src/Console/Style/SF4"/>
         </ignoreFiles>
     </projectFiles>
 
     <issueHandlers>
         <MissingThrowsDocblock errorLevel="suppress" />
-
-        <!-- Compatibility issue with SF3.4: Remove when support will be dropped -->
         <DocblockTypeContradiction errorLevel="suppress" />
-        <RedundantCondition errorLevel="suppress" />
-
-        <!-- Compatibility issue with SF4: Remove when support will be dropped -->
-        <DuplicateClass errorLevel="suppress" />
-        <MethodSignatureMismatch errorLevel="suppress" />
+        <MixedAssignment errorLevel="suppress" />
+        <RedundantConditionGivenDocblockType errorLevel="suppress" />
+        <PossiblyUnusedMethod errorLevel="suppress" />
+        <ReferenceConstraintViolation errorLevel="suppress" />
+        <!-- The whole component is deprecated: its tests exercise the deprecated API on purpose -->
+        <DeprecatedClass>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </DeprecatedClass>
+        <DeprecatedMethod>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </DeprecatedMethod>
     </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>

@@ -1,9 +1,9 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
- * This file is part of the Serendipity HQ Aws Ses Bundle.
+ * This file is part of the Serendipity HQ Console Styles Component.
  *
  * Copyright (c) Adamo Aerendir Crespi <aerendir@serendipityhq.com>.
  *
@@ -11,94 +11,30 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Rector\Core\Configuration\Option;
-use Rector\Set\ValueObject\SetList;
+use Rector\Config\RectorConfig;
+use SerendipityHQ\Integration\Rector\SerendipityHQ;
 
-return static function (ContainerConfigurator $containerConfigurator) : void {
-    $parameters = $containerConfigurator->parameters();
+$toSkip = SerendipityHQ::buildToSkip(SerendipityHQ::SHQ_LIBRARY_SKIP);
 
-    $parameters->set(Option::PHP_VERSION_FEATURES, '7.3');
-
-    $parameters->set(Option::PATHS, [
-        __DIR__ . '/src',
-        __DIR__ . '/tests'
-    ]);
-
-    $parameters->set(Option::EXCLUDE_PATHS, [
-        __DIR__ . '/tests/bootstrap.php',
-        __DIR__ . '/src/Console/Style/SF4/SerendipityHQStyleSF4.php'
-    ]);
-
-    $parameters->set(Option::AUTOLOAD_PATHS, [__DIR__ . '/vendor-bin/phpunit/vendor/autoload.php']);
-
-    $parameters->set(
-        Option::SETS,
-        [
-            SetList::ARRAY_STR_FUNCTIONS_TO_STATIC_CALL,
-            SetList::CODE_QUALITY,
-            SetList::CODING_STYLE,
-            // SetList::NAMING, // Do not use in this library
-            // SetList::ORDER, // Do not use in this library
-            SetList::PERFORMANCE,
-            SetList::PHP_52,
-            SetList::PHP_53,
-            SetList::PHP_54,
-            SetList::PHP_56,
-            SetList::PHP_70,
-            SetList::PHP_71,
-            SetList::PHP_72,
-            SetList::PHP_73,
-            SetList::PHPSTAN,
-            SetList::PHPUNIT_40,
-            SetList::PHPUNIT_50,
-            SetList::PHPUNIT_60,
-            SetList::PHPUNIT_70,
-            SetList::PHPUNIT_75,
-            SetList::PHPUNIT_80,
-            SetList::PHPUNIT80_DMS,
-            SetList::PHPUNIT_CODE_QUALITY,
-            SetList::PHPUNIT_EXCEPTION,
-            SetList::PHPUNIT_INJECTOR,
-            SetList::PHPUNIT_MOCK,
-            SetList::PHPUNIT_SPECIFIC_METHOD,
-            SetList::PHPUNIT_YIELD_DATA_PROVIDER,
-            SetList::UNWRAP_COMPAT,
-            SetList::SOLID,
-            SetList::SYMFONY_CODE_QUALITY,
-            SetList::SYMFONY_PHPUNIT,
-            SetList::TYPE_DECLARATION,
-        ]
-    );
-
-    $parameters->set(Option::IMPORT_SHORT_CLASSES, false);
-
-    $parameters->set(
-        Option::EXCLUDE_RECTORS,
-        [
-            Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector::class,
-            Rector\CodeQuality\Rector\Concat\JoinStringConcatRector::class,
-            Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector::class,
-            Rector\CodingStyle\Rector\Class_\AddArrayDefaultToArrayPropertyRector::class,
-            Rector\CodingStyle\Rector\ClassMethod\NewlineBeforeNewAssignSetRector::class,
-            Rector\CodingStyle\Rector\ClassMethod\RemoveDoubleUnderscoreInMethodNameRector::class,
-            Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
-            Rector\CodingStyle\Rector\Identical\IdenticalFalseToBooleanNotRector::class,
-            Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector::class,
-            Rector\CodingStyle\Rector\Throw_\AnnotateThrowablesRector::class,
-            Rector\CodingStyle\Rector\Use_\RemoveUnusedAliasRector::class,
-            Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector::class, // Maybe good one day
-            Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector::class,
-            Rector\PHPUnit\Rector\ClassMethod\AddDoesNotPerformAssertionToNonAssertingTestRector::class,
-            Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector::class,
-            Rector\SOLID\Rector\Property\AddFalseDefaultToBoolPropertyRector::class,
-            Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector::class,
-            Rector\TypeDeclaration\Rector\ClassMethod\AddArrayParamDocTypeRector::class,
-            Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector::class,
-
-            // This makes impossible to extends *SF4 or *SF5 depending on the installed version of symfony/console
-            // Remove once support for SF4.4 will be dropped
-            Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector::class
-        ]
-    );
-};
+return RectorConfig::configure()
+                   ->withPaths([__DIR__ . '/src', __DIR__ . '/tests'])
+    // This causes issues with controllers
+    // Until required for tests, keep it commented
+                   ->withBootstrapFiles([__DIR__ . '/vendor-bin/phpunit/vendor/autoload.php'])
+                   ->withSets([
+                       Rector\Set\ValueObject\SetList::CODE_QUALITY,
+                       Rector\Set\ValueObject\SetList::CODING_STYLE,
+                       Rector\Set\ValueObject\SetList::TYPE_DECLARATION,
+                   ])
+                   ->withRules([
+                       Rector\DeadCode\Rector\ClassMethod\RemoveUselessParamTagRector::class,
+                       Rector\DeadCode\Rector\ClassMethod\RemoveUselessReturnTagRector::class,
+                       Rector\DeadCode\Rector\Node\RemoveNonExistingVarAnnotationRector::class,
+                   ])
+                   ->withImportNames(importNames: true, importDocBlockNames: true, importShortClasses: false)
+                   ->withSkip($toSkip)
+                   ->withCache(
+                       './var/cache/rector',
+                       Rector\Caching\ValueObject\Storage\FileCacheStorage::class
+                   )
+                   ->withComposerBased(phpunit: true, symfony: true);
